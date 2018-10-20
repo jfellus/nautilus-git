@@ -49,7 +49,10 @@ class NautilusLocation:
             "open_remote_clicked": self._open_remote_browser,
             "compare_commits_clicked": self._compare_commits,
             "popover_clicked": self._trigger_popover,
-            "branch_clicked": self._update_branch
+            "branch_clicked": self._update_branch,
+            "push_clicked": self._push,
+            "pull_clicked": self._pull,
+            "fast_commit_clicked": self._fastcommit
         })
         self._build_widgets()
 
@@ -121,3 +124,18 @@ class NautilusLocation:
         """Open the remote url on the default browser."""
         Gio.app_info_launch_default_for_uri(self._git.get_remote_url())
         self._popover.hide()
+
+    def _fastcommit(self, *args):
+        out = self._git.fast_commit()
+        self.messagebox(out)
+
+    def _push(self, *args):
+        out = self._git.push()
+        self.messagebox(out)
+
+    def _pull(self, *args):
+        out = self._git.pull()
+        self.messagebox(out)
+
+    def messagebox(self, msg):
+        self._builder.get_object("message").get_buffer().set_text(msg)

@@ -135,3 +135,21 @@ class Git:
             execute("git checkout {}".format(branch), self.dir)
         else:
             execute("git checkout -b {0}".format(branch), self.dir)
+
+    def pull(self):
+        return execute("git pull", self.dir)
+
+    def push(self):
+        return execute("git push", self.dir)
+
+    def commit(self, msg):
+        return execute("git commit -a -m '{0}'".format(msg), self.dir)
+
+    def add_all(self):
+        return execute("git add .", self.dir)
+
+    def fast_commit(self):
+        out = self.add_all()
+        out += self.commit('ok')
+        out += self.push()
+        return out
