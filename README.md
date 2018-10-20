@@ -2,7 +2,7 @@
 
 Nautilus/Nemo extension to add important information about the current git directory
 
-all credits go to @bilelmoussaoui
+all credits go to bilelmoussaoui
 
 ## Screenshots
 
