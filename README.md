@@ -2,6 +2,8 @@
 
 Nautilus/Nemo extension to add important information about the current git directory
 
+all credits go to bilelmoussaoui
+
 ## Screenshots
 
 <div align="center"><img src="screenshots/screenshot1.png" alt="Preview" /></div>
