@@ -1,22 +1,5 @@
 #!/usr/bin/python2
-"""
-Nautilus git pluging to show useful information under any
-git directory
 
-Author : Bilal Elmoussaoui (bil.elmoussaoui@gmail.com)
-Website : https://github.com/bil-elmoussaoui/nautilus-git
-Licence : GPL-3.0
-nautilus-git is free software: you can redistribute it and/or
-modify it under the terms of the GNU General Public License as published
-by the Free Software Foundation, either version 3 of the License, or
-(at your option) any later version.
-nautilus-git is distributed in the hope that it will be useful,
-but WITHOUT ANY WARRANTY; without even the implied warranty of
-MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
-GNU General Public License for more details.
-You should have received a copy of the GNU General Public License
-along with nautilus-git. If not, see <http://www.gnu.org/licenses/>.
-"""
 from os import path
 from subprocess import PIPE, Popen
 from urlparse import urlsplit

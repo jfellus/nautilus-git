@@ -1,45 +1,22 @@
 #!/usr/bin/python2
-"""
-Nautilus git pluging to show useful information under any
-git directory
 
-Author : Bilal Elmoussaoui (bil.elmoussaoui@gmail.com)
-Website : https://github.com/bil-elmoussaoui/nautilus-git
-Licence : GPL-3.0
-nautilus-git is free software: you can redistribute it and/or
-modify it under the terms of the GNU General Public License as published
-by the Free Software Foundation, either version 3 of the License, or
-(at your option) any later version.
-nautilus-git is distributed in the hope that it will be useful,
-but WITHOUT ANY WARRANTY; without even the implied warranty of
-MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
-GNU General Public License for more details.
-You should have received a copy of the GNU General Public License
-along with nautilus-git. If not, see <http://www.gnu.org/licenses/>.
-"""
 from ConfigParser import ConfigParser, NoSectionError
 from os import environ, path
 from StringIO import StringIO
 from sys import path as sys_path
-
-sys_path.insert(0, environ["SRC_DIR"])
 from utils import execute, get_file_path, get_real_git_dir
 
-
 class Git:
-    """Main Git class."""
 
-    def __init__(self, uri):
-        file_path = get_file_path(uri)
-        git_dir = get_real_git_dir(file_path)
+    def __init__(self, path):
+        git_dir = get_real_git_dir(path)
         if git_dir:
             self._dir = git_dir
         else:
-            self._dir = file_path
+            self._dir = path
 
     @property
     def dir(self):
-        """Property: dir."""
         return self._dir
 
     def get_branch(self):

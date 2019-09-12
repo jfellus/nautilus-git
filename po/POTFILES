@@ -1,8 +1,0 @@
-nautilus-git/nautilus-git.py.in
-nemo-git/nemo-git.py.in
-src/widgets/compare.py
-src/widgets/page.py
-data/nautilus-git.metainfo.xml.in
-data/ui/branch.ui
-data/ui/location.ui
-data/ui/page.ui
