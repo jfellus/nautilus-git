@@ -12,8 +12,10 @@ class Git:
         git_dir = get_real_git_dir(path)
         if git_dir:
             self._dir = git_dir
+            self.is_git = True
         else:
             self._dir = path
+            self.is_git = False
 
     @property
     def dir(self):

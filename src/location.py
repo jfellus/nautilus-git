@@ -27,9 +27,16 @@ class NautilusLocation:
         self._build_widgets()
 
     def _build_widgets(self):
-        project_branch = self._git.get_project_branch()
-        remote_url = self._git.get_remote_url()
-        self._builder.get_object("branch").set_label(project_branch + " - " + remote_url)
+        if not self._git.is_git:
+            self._builder.get_object("pull").set_visible(False)
+            self._builder.get_object("push").set_visible(False)
+            self._builder.get_object("fastcommit").set_visible(False)
+            self._builder.get_object("branch").set_visible(False)
+        else:
+            project_branch = self._git.get_project_branch()
+            remote_url = self._git.get_remote_url()
+            self._builder.get_object("branch").set_label(project_branch + " - " + remote_url)
+
 
     @property
     def main(self):
@@ -55,7 +62,7 @@ class NautilusLocation:
 
     def _open_terminator(self, *args):
         try:
-            os.spawnlp(os.P_NOWAIT, 'terminator', 'terminator', '--working-directory=' + self._dir)
+            os.spawnlp(os.P_NOWAIT, 'terminator', 'terminator', '-m', '--working-directory=' + self._dir)
         except Exception as e:
             self.messagebox(str(e))
 

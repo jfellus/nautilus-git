@@ -27,7 +27,7 @@ def get_real_git_dir(directory):
     """Return the absolute path of the .git folder."""
     dirs = directory.split("/")
     current_path = ""
-    for i in range(len(dirs) - 1, 0, -1):
+    for i in range(len(dirs), 0, -1):
         current_path = "/".join(dirs[0:i])
         git_folder = path.join(current_path, ".git")
         if path.exists(git_folder):
